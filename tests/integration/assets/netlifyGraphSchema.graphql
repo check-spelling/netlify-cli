@@ -365,7 +365,7 @@ type OneGraphSetSlackEventWebhookSigningSecretPayload {
   """App that the slack event webhook belongs to."""
   app: OneGraphApp
 
-  """The slack event webhook that was mofified."""
+  """The slack event webhook that was modified."""
   slackEventWebhook: OneGraphSlackEventWebhook!
 
   """Custom OAuth client that the slack event webhook belongs to."""
@@ -384,7 +384,7 @@ type OneGraphSetSlackEventWebhookAppTokenPayload {
   """App that the slack event webhook belongs to."""
   app: OneGraphApp
 
-  """The slack event webhook that was mofified."""
+  """The slack event webhook that was modified."""
   slackEventWebhook: OneGraphSlackEventWebhook!
 
   """Custom OAuth client that the slack event webhook belongs to."""
@@ -614,17 +614,17 @@ type OneGraphEnableAuthGuardianSlackIntegrationResponsePayload {
   app: OneGraphApp
 }
 
-input OneGraphDisableGithubRepositorySubscriptionDelegationByIdInput {
+input OneGraphDisableGitHubRepositorySubscriptionDelegationByIdInput {
   """The id of the delegation."""
   id: String!
 }
 
-type OneGraphDisableGithubRepositorySubscriptionDelegationByIdResult {
+type OneGraphDisableGitHubRepositorySubscriptionDelegationByIdResult {
   """The App that delegation was disabled for."""
   app: OneGraphApp!
 }
 
-input OneGraphDisableGithubRepositorySubscriptionDelegationInput {
+input OneGraphDisableGitHubRepositorySubscriptionDelegationInput {
   """
   The name of the repo, e.g. `graphiql-explorer` in `onegraph/graphiql-explorer`.
   """
@@ -636,7 +636,7 @@ input OneGraphDisableGithubRepositorySubscriptionDelegationInput {
   repoOwner: String!
 }
 
-type OneGraphDisableGithubRepositorySubscriptionDelegationResult {
+type OneGraphDisableGitHubRepositorySubscriptionDelegationResult {
   """The GitHub repository name of app that delegation was enabled for."""
   repoName: String!
 
@@ -644,7 +644,7 @@ type OneGraphDisableGithubRepositorySubscriptionDelegationResult {
   repoOwner: String!
 }
 
-input OneGraphEnableGithubRepositorySubscriptionDelegationInput {
+input OneGraphEnableGitHubRepositorySubscriptionDelegationInput {
   """
   The name of the repo, e.g. `graphiql-explorer` in `onegraph/graphiql-explorer`.
   """
@@ -656,7 +656,7 @@ input OneGraphEnableGithubRepositorySubscriptionDelegationInput {
   repoOwner: String!
 }
 
-type OneGraphEnableGithubRepositorySubscriptionDelegationResult {
+type OneGraphEnableGitHubRepositorySubscriptionDelegationResult {
   """The GitHub repository name of app that delegation was disabled for."""
   repoName: String!
 
@@ -786,7 +786,7 @@ type OneGraphPersistedQueryResponsePayload {
   persistedQuery: OneGraphPersistedQuery!
 }
 
-enum OneGraphDataVitualizationSupportedServiceArg {
+enum OneGraphDataVirtualizationSupportedServiceArg {
   GMAIL
 }
 
@@ -797,7 +797,7 @@ input OneGraphStartDataVirtualizationInput {
   accountId: String!
 
   """Service to enable data virtualization for"""
-  service: OneGraphDataVitualizationSupportedServiceArg!
+  service: OneGraphDataVirtualizationSupportedServiceArg!
 }
 
 """
@@ -811,7 +811,7 @@ type OneGraphDataVirtualizationDetails {
 
 type OneGraphStartDataVirtualizationPayload {
   """Organization that was updated by this mutation"""
-  dataVirutalizationDetails: OneGraphDataVirtualizationDetails!
+  dataVirtualizationDetails: OneGraphDataVirtualizationDetails!
 }
 
 input OneGraphUpdateAppByIdPatch {
@@ -957,7 +957,7 @@ input OneGraphSubscriptionSecretInput {
   To verify the signature:
   1. Extract the timestamp (1582852002 above)
   2. Extract the signature (7d797ecd431e1a98aaba2f387f2c43241a13c1f093fd9d7e661758963744549a above)
-  3. Concatenate the timestamp and the request body, separeted by a period (e.g. `t + '.' + requestBody`)
+  3. Concatenate the timestamp and the request body, separated by a period (e.g. `t + '.' + requestBody`)
   4. Compute the hmac_sha256 hash of (3)
   5. Compare the hash with the provided signature using a constant-time comparison function (e.g. crypto.timingSafeEqual in Node)
   6. Reject the request if the hash you computed does not match the provided signature or if the timestamp is too far in the past (typically, 5 minutes)
@@ -1132,7 +1132,7 @@ input OneGraphCreateServiceAuthInput {
   """
   Developer token for the Google Ads api. This param is required for using custom OAuth credentials for Google Ads.
   
-  A developer token from Google allows your app to connect to the Google Ads API. To retrieve your developer token, sign in to your Manager Account. You must be signed-in to a Google Ads Manager Account before continuing.
+  A developer token from Google allows your app to connect to the Google Ads API. To retrieve your developer token, sign into your Manager Account. You must be signed-in to a Google Ads Manager Account before continuing.
   
   Navigate to TOOLS & SETTINGS > SETUP > API Center. The API Center option will appear only for Google Ads Manager Accounts.
   
@@ -1543,17 +1543,17 @@ type OneGraphMutation {
   """
   Allows non-admin users to subscribe to GitHub events on OneGraph for the given repo and app.
   """
-  enableGitHubRepositorySubscriptionDelegation(input: OneGraphEnableGithubRepositorySubscriptionDelegationInput!): OneGraphEnableGithubRepositorySubscriptionDelegationResult!
+  enableGitHubRepositorySubscriptionDelegation(input: OneGraphEnableGitHubRepositorySubscriptionDelegationInput!): OneGraphEnableGitHubRepositorySubscriptionDelegationResult!
 
   """
   Remove ability for non-admin users to subscribe to GitHub events on OneGraph for the given repo and app.
   """
-  disableGitHubRepositorySubscriptionDelegation(input: OneGraphDisableGithubRepositorySubscriptionDelegationInput!): OneGraphDisableGithubRepositorySubscriptionDelegationResult!
+  disableGitHubRepositorySubscriptionDelegation(input: OneGraphDisableGitHubRepositorySubscriptionDelegationInput!): OneGraphDisableGitHubRepositorySubscriptionDelegationResult!
 
   """
   Remove ability for non-admin users to subscribe to GitHub events on OneGraph. Allows the owner of the app on OneGraph to remove delegation for a repo.
   """
-  disableGitHubRepositorySubscriptionDelegationById(input: OneGraphDisableGithubRepositorySubscriptionDelegationByIdInput!): OneGraphDisableGithubRepositorySubscriptionDelegationByIdResult!
+  disableGitHubRepositorySubscriptionDelegationById(input: OneGraphDisableGitHubRepositorySubscriptionDelegationByIdInput!): OneGraphDisableGitHubRepositorySubscriptionDelegationByIdResult!
   enableAuthGuardianSlackIntegration(input: OneGraphEnableAuthGuardianSlackIntegrationInput!): OneGraphEnableAuthGuardianSlackIntegrationResponsePayload
   disableAuthGuardianSlackIntegration(input: OneGraphDisableAuthGuardianSlackIntegrationInput!): OneGraphDisableAuthGuardianSlackIntegrationResponsePayload
   destroyApp(id: String!): OneGraphApp
@@ -1924,7 +1924,7 @@ type OneGraphExternalHoneycombConfig {
   """Id of the app that the external Honeycomb config belongs to."""
   appId: String!
 
-  """The datetime that the Honecomb config was added, in rfc3339 format."""
+  """The datetime that the Honeycomb config was added, in rfc3339 format."""
   createdAt: String!
 
   """
@@ -2005,10 +2005,10 @@ type OneGraphExternalGraphQLSchemaConnection {
   nodes: [OneGraphExternalGraphQLSchema!]!
 }
 
-type OneGraphGithubRepositorySubscriptionDelegate {
+type OneGraphGitHubRepositorySubscriptionDelegate {
   id: String!
 
-  """Name with owner (e.g. onegraph/graphiql-exporer) of the GitHub repo."""
+  """Name with owner (e.g. onegraph/graphiql-explorer) of the GitHub repo."""
   nameWithOwner: String!
 
   """
@@ -2017,8 +2017,8 @@ type OneGraphGithubRepositorySubscriptionDelegate {
   createdAt: String!
 }
 
-type OneGraphGithubRepositorySubscriptionDelegateConnection {
-  nodes: [OneGraphGithubRepositorySubscriptionDelegate!]!
+type OneGraphGitHubRepositorySubscriptionDelegateConnection {
+  nodes: [OneGraphGitHubRepositorySubscriptionDelegate!]!
 }
 
 """Persisted query"""
@@ -2294,7 +2294,7 @@ type OneGraphAppSubscriptionPayload {
   lastStatusCode: Int
 
   """
-  If there was an error delivering the payload to a webhook destination, this field will contain the first 512 bytes of the response we receieved from the server.
+  If there was an error delivering the payload to a webhook destination, this field will contain the first 512 bytes of the response we received from the server.
   """
   lastError: String
 }
@@ -4631,7 +4631,7 @@ type OneGraphApp {
     """Fetch items in the list after the specified cursor"""
     after: String
 
-    """How many subsriptions to fetch"""
+    """How many subscriptions to fetch"""
     first: Int = 25
   ): OneGraphAppSubscriptionsConnection!
 
@@ -4667,7 +4667,7 @@ type OneGraphApp {
   ): OneGraphPersistedQueryConnection!
 
   """GitHub repos for the app that can have subscriptions on OneGraph."""
-  gitHubRepositorySubscriptionDelegates: OneGraphGithubRepositorySubscriptionDelegateConnection!
+  gitHubRepositorySubscriptionDelegates: OneGraphGitHubRepositorySubscriptionDelegateConnection!
 
   """The Slack channel for AuthGuardian to post into upon user sign-in"""
   authGuardianSlackChannel: String
@@ -4835,7 +4835,7 @@ type OneGraphServiceQuery {
     sessionId: String!
   ): [OneGraphNetlifyCliSessionEvent!]!
 
-  """Netlify CLI sessions, orderd by createdAt descending."""
+  """Netlify CLI sessions, ordered by createdAt descending."""
   netlifyCliSessionsByAppId(
     """The number of sessions to fetch. The maximum is 10."""
     first: Int = 10
@@ -5078,7 +5078,7 @@ input OneGraphMuxAuthArg {
 
 input OneGraphLogdnaServiceAuthArg {
   """
-  Service Key from LogDNA. Retrive a service key from [your profile](https://app.logdna.com/manage/profile) under API Keys > Service Keys.
+  Service Key from LogDNA. Retrieve a service key from [your profile](https://app.logdna.com/manage/profile) under API Keys > Service Keys.
   """
   serviceKey: String!
 }
@@ -5089,7 +5089,7 @@ input OneGraphGoogleAdsAuthArg {
   """
   A developer token from Google allows your app to connect to the Google Ads API.
   
-  To retrieve your developer token, sign in to your Manager Account. You must be signed-in to a Google Ads Manager Account before continuing. Navigate to TOOLS & SETTINGS > SETUP > API Center."
+  To retrieve your developer token, sign into your Manager Account. You must be signed-in to a Google Ads Manager Account before continuing. Navigate to TOOLS & SETTINGS > SETUP > API Center."
   """
   developerToken: String!
 }
@@ -5135,7 +5135,7 @@ input OneGraphCloudflareUserAuthArg {
   email: String!
 }
 
-input OneGraphChagebeeAuthArg {
+input OneGraphChargebeeAuthArg {
   """
   A [Chargebee API key](https://www.chargebee.com/docs/2.0/api_keys.html). To create a key go to **Settings** > **Configure Chargebee** > **API Keys and Webhooks** and then click on the **API Keys** tab.
   """
@@ -5204,7 +5204,7 @@ input OneGraphServiceAuths {
   crunchbaseUserKey: String
   cloudflareUserAuth: OneGraphCloudflareUserAuthArg
   clearbitAuth: String
-  chargebee: OneGraphChagebeeAuthArg
+  chargebee: OneGraphChargebeeAuthArg
   brexAuth: String
   apollo: OneGraphApolloAuthArg
   airtableApiKey: String
@@ -5215,7 +5215,7 @@ The anchor is like two-factor auth for the token. It ensures that the person who
 """
 enum OneGraphAccessTokenAnchorEnum {
   """
-  Use the logged in OneGraph user. The user must be logged in to the OneGraph dashboard to use this option.
+  Use the logged in OneGraph user. The user must be logged into the OneGraph dashboard to use this option.
   """
   ONEGRAPH_USER
 
@@ -5258,7 +5258,7 @@ type OneGraphAccessToken {
   token: String!
 
   """
-  Time that the the token expires, measured in seconds since the Unix epoch
+  Time that the token expires, measured in seconds since the Unix epoch
   """
   expireDate: Int!
 
