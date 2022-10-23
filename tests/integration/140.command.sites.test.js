@@ -11,7 +11,7 @@ const sinon = require('sinon')
 /* eslint-disable import/order */
 const { BaseCommand } = require('../../src/commands/base-command')
 const github = require('../../src/utils/init/config-github')
-// mock the getGithubToken method with a fake token
+// mock the getGitHubToken method with a fake token
 const gitMock = sinon.stub(github, 'getGitHubToken').callsFake(() => 'my-token')
 
 const templatesUtils = require('../../src/utils/sites/utils')
